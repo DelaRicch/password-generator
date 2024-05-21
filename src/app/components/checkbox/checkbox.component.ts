@@ -6,8 +6,8 @@ import {
     Input,
     Output,
     signal,
-} from "@angular/core"
-import { cn } from "../../utility/functions"
+} from "@angular/core";
+import { cn } from "../../utility/functions";
 
 @Component({
     selector: "pg-checkbox",
@@ -16,7 +16,7 @@ import { cn } from "../../utility/functions"
     template: ` <span
             [class]="
                 cn(
-                    'flex items-center justify-center w-5 h-5 border border-ash',
+                    'flex items-center justify-center w-5 h-5 transition-all duration-200 ese-linear border border-ash group-hover:border-success',
                     {
                         'bg-success border-success': isChecked()
                     }
@@ -30,23 +30,23 @@ import { cn } from "../../utility/functions"
         <span class="text-ash font-semibold capitalize">{{ title }}</span>`,
 })
 export class CheckboxComponent {
-    cn = cn
+    cn = cn;
 
-    @Input() title: string = ""
-    @Output() emitCheckValue = new EventEmitter<boolean>()
+    @Input() title: string = "";
+    @Output() emitCheckValue = new EventEmitter<boolean>();
 
-    isChecked = signal(false)
+    isChecked = signal(false);
 
     @HostBinding("class") get pgClass() {
-        return "flex items-center gap-4 w-max cursor-pointer"
+        return "flex items-center gap-4 w-max cursor-pointer group";
     }
 
     @HostListener("click") clickCheckBox() {
-        this.toggleCheck()
+        this.toggleCheck();
     }
 
     toggleCheck() {
-        this.isChecked.set(!this.isChecked())
-        this.emitCheckValue.emit(this.isChecked())
+        this.isChecked.set(!this.isChecked());
+        this.emitCheckValue.emit(this.isChecked());
     }
 }

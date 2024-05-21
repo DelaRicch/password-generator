@@ -2,6 +2,7 @@ import { Component, HostBinding } from "@angular/core"
 import { PasswordCopyComponent } from "./components/password-copy/password-copy.component"
 import { PasswordStrengthDisplayComponent } from "./components/password-strength-display/password-strength-display.component"
 import { CheckboxComponent } from "./components/checkbox/checkbox.component"
+import { PasswordLengthComponent } from "./components/password-length/password-length.component"
 
 @Component({
     selector: "app-root",
@@ -10,15 +11,17 @@ import { CheckboxComponent } from "./components/checkbox/checkbox.component"
         PasswordCopyComponent,
         PasswordStrengthDisplayComponent,
         CheckboxComponent,
+        PasswordLengthComponent,
     ],
     template: `
         <section
             class="w-[95vw] sm:w-[80vw] md:w-[540px] flex flex-col gap-4 border-2 border-red-700"
         >
-            <h2 class="text-center text-grey font-bold">Generate a password</h2>
+            <h2 class="text-center text-grey font-bold">Password Generator</h2>
             <pg-password-copy></pg-password-copy>
             <div class="flex flex-col gap-4 p-4 bg-dark">
-                <span class="flex flex-col gap-2">
+                <pg-password-length></pg-password-length>
+                <span class="flex flex-col gap-3 mt-2">
                     <pg-checkbox
                         title="Include Uppercase Letters"
                     ></pg-checkbox>
