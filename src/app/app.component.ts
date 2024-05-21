@@ -15,12 +15,10 @@ import { PasswordGeneratorService } from "./services/password-generator/password
         PasswordLengthComponent,
     ],
     template: `
-        <section
-            class="w-[95vw] sm:w-[80vw] md:w-[540px] flex flex-col gap-4 border-2 border-red-700"
-        >
+        <section class="w-[95vw] sm:w-[80vw] md:w-[540px] flex flex-col gap-4">
             <h2 class="text-center text-grey font-bold">Password Generator</h2>
             <pg-password-copy></pg-password-copy>
-            <div class="flex flex-col gap-4 p-4 bg-dark">
+            <div class="flex flex-col gap-4 px-4 py-8 bg-dark">
                 <pg-password-length></pg-password-length>
                 <span class="flex flex-col gap-3 mt-2">
                     <pg-checkbox

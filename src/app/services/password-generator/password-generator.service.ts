@@ -4,14 +4,14 @@ import { computed, Injectable, signal } from "@angular/core";
     providedIn: "root",
 })
 export class PasswordGeneratorService {
-    maximumPasswordLength = signal(20);
+    maximumPasswordLength = signal(25);
     minimumPasswordLength = signal(8);
     passwordLength = signal(10);
     includeUppercase = signal(false);
     includeLowercase = signal(false);
     includeNumbers = signal(false);
     includeSymbols = signal(false);
-
+    isCopiedPassword = signal(false);
     generatedPassword = signal("");
 
     passwordStrength = computed(() => {
@@ -115,5 +115,13 @@ export class PasswordGeneratorService {
 
     getGeneratedPassword() {
         return this.generatedPassword();
+    }
+
+    async copyPasswordToClipboard() {
+        await navigator.clipboard.writeText(this.generatedPassword());
+        this.isCopiedPassword.set(true);
+        setTimeout(() => {
+            this.isCopiedPassword.set(false);
+        }, 2000);
     }
 }

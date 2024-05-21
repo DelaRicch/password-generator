@@ -15,7 +15,6 @@ import { FormsModule } from "@angular/forms";
                 passwordGeneratorService.getPasswordLength()
             }}</span>
         </span>
-        <!--            [value]="passwordGeneratorService.getPasswordLength()"-->
         <input
             [min]="passwordGeneratorService.minimumPasswordLength()"
             [max]="passwordGeneratorService.maximumPasswordLength()"
