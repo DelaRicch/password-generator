@@ -7,9 +7,12 @@ import { NgOptimizedImage } from "@angular/common";
     standalone: true,
     imports: [NgOptimizedImage],
     template: `
-        <span class="text-ash text-2xl font-bold pointer-events-none">{{
-            passwordService.getGeneratedPassword() || "Generate password"
-        }}</span>
+        <span
+            class="text-ash text-2xl font-bold pointer-events-none max-w-[90%] overflow-clip"
+            >{{
+                passwordService.getGeneratedPassword() || "Generate password"
+            }}</span
+        >
         <div class="flex flex-col items-center justify-center gap-2">
             <button
                 [disabled]="!passwordService.generatedPassword().length"
